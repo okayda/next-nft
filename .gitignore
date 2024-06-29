@@ -16,6 +16,9 @@
 # production
 /build
 
+# Animation
+/components/animation
+
 # misc
 .DS_Store
 *.pem
