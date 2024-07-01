@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  body {
-    @apply bg-[#080808];
-  }
+body {
+  @apply bg-[#080808];
 }

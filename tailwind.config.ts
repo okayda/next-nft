@@ -1,6 +1,6 @@
 import type { Config } from "tailwindcss";
 
-const config: Config = {
+const config = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -15,7 +15,7 @@ const config: Config = {
 
       screens: {
         // max-width responsive design
-        // "min-md": { max: "768px" },
+        // "max-md": { max: "768px" },
 
         // min-width responsive design
         full: "1400px",
@@ -42,11 +42,25 @@ const config: Config = {
             "offset-distance": "100%",
           },
         },
+
+        "shine-pulse": {
+          "0%": {
+            "background-position": "0% 0%",
+          },
+
+          "50%": {
+            "background-position": "100% 100%",
+          },
+
+          to: {
+            "background-position": "0% 0%",
+          },
+        },
       },
     },
   },
 
-  plugins: [],
-};
+  plugins: [require("tailwindcss-animate")],
+} satisfies Config;
 
 export default config;
