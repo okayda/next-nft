@@ -43,7 +43,7 @@ body {
   }
 
   .hero-section {
-    @apply mx-auto max-w-full px-3 text-white full:px-0;
+    @apply mx-auto max-w-full px-3 text-white xl:px-12;
   }
 
   .text-size-12 {
@@ -78,7 +78,19 @@ body {
     @apply text-[30px];
   }
 
+  .text-size-36 {
+    @apply text-[36px];
+  }
+
   .text-size-40 {
     @apply text-[40px];
+  }
+
+  .text-size-50 {
+    @apply text-[50px];
+  }
+
+  .text-size-60 {
+    @apply text-[60px];
   }
 }

@@ -14,21 +14,21 @@ const World = dynamic(() => import("../animation/Globe").then((m) => m.World), {
 
 export default function Hero() {
   return (
-    <div className="mx-auto max-w-full px-3 text-white full:px-0">
-      <div className="md:flex md:items-center md:justify-evenly">
+    <div className="hero-section">
+      <div className="md:flex md:items-center md:justify-evenly xl:justify-between">
         <div>
           <div className="text-center md:text-left">
-            <span className="text-size-12 md:text-size-14 text-purple-light md:mb-1 md:block">
+            <span className="text-size-12 md:text-size-14 text-purple-light md:mb-1 md:block xl:mb-2">
               NFTs & Cryptocurrency
             </span>
 
-            <h1 className="text-size-30 md:text-size-40 mx-auto mb-4 max-w-[340px] font-semibold leading-10 md:mx-0 md:leading-tight">
+            <h1 className="text-size-30 md:text-size-40 lg:text-size-50 xl:text-size-60 mx-auto mb-4 max-w-[340px] font-semibold leading-10 md:mx-0 md:leading-tight lg:leading-[55px] xl:max-w-[420px] xl:leading-[60px]">
               Discover best
               <span className="text-purple-light"> Blockchain </span>
               Marketplace
             </h1>
 
-            <p className="text-size-14 md:text-size-16 mx-auto mb-6 max-w-[340px] text-light-black md:mx-0">
+            <p className="text-size-14 md:text-size-16 mx-auto mb-6 max-w-[340px] text-light-black md:mx-0 xl:max-w-[470px]">
               NFTs & Cryptocurrency, are artworks created on the blockchain with
               unique encryption codes that can be validated for ownership.
             </p>
@@ -53,16 +53,17 @@ export default function Hero() {
             </div>
           </div>
 
-          <ul className="mx-auto mb-1 flex max-w-[730px] justify-evenly text-center md:justify-start md:gap-10">
+          <ul className="mx-auto mb-1 flex max-w-[730px] justify-evenly text-center md:justify-start md:gap-10 xl:text-left">
             {heroData.map(
               ({ label, value }: { label: string; value: number }) => (
                 <li key={label} className="flex flex-col">
-                  <span className="text-size-20 md:text-size-24 font-semibold">
+                  <span className="text-size-20 md:text-size-24 lg:text-size-30 xl:text-size-36 font-semibold">
                     {" "}
                     <NumberTicker value={value} className="text-white" />
                     K+
                   </span>
-                  <span className="text-size-12 md:text-size-14 text-light-black">
+
+                  <span className="text-size-12 md:text-size-14 lg:text-size-16 text-light-black">
                     {label}
                   </span>
                 </li>
@@ -71,7 +72,7 @@ export default function Hero() {
           </ul>
         </div>
 
-        <div className="h-96 w-full md:h-[360px] md:w-[360px]">
+        <div className="h-96 w-full cursor-grab md:h-[360px] md:w-[360px] lg:h-[420px] lg:w-[420px] xl:h-[540px] xl:w-[540px]">
           <World globeConfig={globeConfig} data={globeLocation} />
         </div>
       </div>

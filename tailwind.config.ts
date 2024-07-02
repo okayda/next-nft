@@ -10,7 +10,7 @@ const config = {
   theme: {
     extend: {
       maxWidth: {
-        full: "1340px",
+        full: "1280px",
       },
 
       screens: {
@@ -18,7 +18,8 @@ const config = {
         // "max-md": { max: "768px" },
 
         // min-width responsive design
-        full: "1400px",
+        xl: "1200px",
+        xxl: "1400px",
       },
 
       colors: {
