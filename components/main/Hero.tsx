@@ -13,14 +13,14 @@ const World = dynamic(() => import("../animation/Globe").then((m) => m.World), {
 export default function Hero() {
   return (
     <div className="mx-auto max-w-full px-3 text-white full:px-0">
-      <div>
+      <div className="md:flex md:items-center md:justify-evenly">
         <div>
-          <div className="text-center">
-            <span className="text-xs text-purple-light">
+          <div className="text-center md:text-left">
+            <span className="text-xs text-purple-light md:mb-1 md:block">
               NFTs & Cryptocurrency
             </span>
 
-            <h1 className="mx-auto mb-4 max-w-[260px] text-3xl font-semibold">
+            <h1 className="mx-auto mb-4 max-w-[260px] text-3xl font-semibold md:mx-0">
               Discover best
               <span className="text-purple-light"> NFTs </span>
               Marketplace
@@ -31,7 +31,7 @@ export default function Hero() {
               unique encryption codes that can be validated for ownership.
             </p>
 
-            <div className="mb-8 flex justify-center gap-4 text-base font-medium">
+            <div className="mb-8 flex justify-center gap-4 text-base font-medium md:justify-start">
               <Link href="/" className="rounded-md">
                 <ShineBorder
                   className="center rounded-md border border-gray-700/40 bg-slate-900/30 px-4 py-2 text-center text-base font-medium capitalize text-white"
@@ -51,7 +51,7 @@ export default function Hero() {
             </div>
           </div>
 
-          <ul className="mx-auto mb-1 flex max-w-[730px] justify-evenly text-center">
+          <ul className="mx-auto mb-1 flex max-w-[730px] justify-evenly text-center md:justify-start md:gap-10">
             <li className="flex flex-col">
               <span className="text-xl font-semibold">
                 {" "}
@@ -84,7 +84,7 @@ export default function Hero() {
           </ul>
         </div>
 
-        <div className="h-96 w-full">
+        <div className="h-96 w-full md:h-80 md:w-80">
           <World globeConfig={globeConfig} data={globeLocation} />
         </div>
       </div>
