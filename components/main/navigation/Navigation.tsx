@@ -20,7 +20,7 @@ export default function Navigation() {
               alt="Rocket"
             />
 
-            <span className="text-3xl font-semibold tracking-widest text-white">
+            <span className="text-size-30 font-semibold tracking-widest text-white">
               NFTs
             </span>
           </Link>

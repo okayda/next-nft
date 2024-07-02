@@ -42,19 +42,19 @@ export default function MobileNav() {
               alt="Rocket"
             />
 
-            <span className="text-3xl font-semibold tracking-widest text-white">
+            <span className="text-size-30 font-semibold tracking-widest text-white">
               NFTs
             </span>
           </SheetTitle>
 
-          <SheetDescription className="text-left text-base font-normal text-light-black">
+          <SheetDescription className="text-size-16 text-left font-normal text-light-black">
             NFTs & Cryptocurrency, are artworks created on the blockchain with
             unique encryption codes that can be validated for ownership.
           </SheetDescription>
         </SheetHeader>
 
         {/* Navigation Links */}
-        <ul className="mb-12 mt-8 flex flex-col gap-9 text-lg text-white">
+        <ul className="text-size-16 mb-12 mt-8 flex flex-col gap-9 text-white">
           {navigation.map(
             ({ label, route }: { label: string; route: string }) => (
               <li key={label}>
@@ -67,11 +67,11 @@ export default function MobileNav() {
         </ul>
 
         <ShineBorder
-          className="min-h-[60px] w-full bg-slate-900/90 p-3 text-center text-lg font-medium capitalize text-white"
+          className="min-h-[60px] w-full bg-slate-900/90 p-3 text-center font-medium capitalize text-white"
           color={["#764AF1", "#FE8FB5", "#FFAA40"]}
         >
-          <div className="flex justify-center gap-3">
-            <span className="self-end tracking-wide">Connect Wallet</span>
+          <div className="text-size-18 flex justify-center gap-3">
+            <span className="self-center tracking-wide">Connect Wallet</span>
             <Image src="/icons/metamask.webp" width={32} height={32} alt="" />
           </div>
         </ShineBorder>

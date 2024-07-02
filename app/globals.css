@@ -47,30 +47,38 @@ body {
   }
 
   .text-size-12 {
-    @apply text-[12px] leading-normal;
+    @apply text-[12px];
   }
 
   .text-size-14 {
-    @apply text-[14px] leading-normal;
+    @apply text-[14px];
   }
 
   .text-size-16 {
-    @apply text-[16px] leading-normal;
+    @apply text-[16px];
   }
 
   .text-size-18 {
-    @apply text-[18px] leading-normal;
+    @apply text-[18px];
   }
 
   .text-size-20 {
-    @apply text-[20px] leading-normal;
+    @apply text-[20px];
   }
 
   .text-size-24 {
-    @apply text-[24px] leading-normal;
+    @apply text-[24px];
   }
 
-  .text-size-32 {
-    @apply text-[32px] leading-normal;
+  .text-size-26 {
+    @apply text-[26px];
+  }
+
+  .text-size-30 {
+    @apply text-[30px];
+  }
+
+  .text-size-40 {
+    @apply text-[40px];
   }
 }

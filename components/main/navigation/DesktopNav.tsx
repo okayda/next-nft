@@ -11,7 +11,7 @@ export default function DesktopNav() {
     <div className="hidden items-center gap-6 md:flex">
       <nav className="h-full w-80 items-center">
         {/* Navigation Links */}
-        <ul className="relative flex h-auto w-full items-center justify-between rounded-md bg-slate-900/90 px-5 py-2 text-sm text-white">
+        <ul className="text-size-14 relative flex h-auto w-full items-center justify-between rounded-md bg-slate-900/90 px-5 py-2 text-white">
           {navigation.map(
             ({ label, route }: { label: string; route: string }) => (
               <li key={label} className="z-50">
@@ -28,7 +28,7 @@ export default function DesktopNav() {
 
       <Link href="/">
         <ShineBorder
-          className="center min-h-[50px] bg-slate-900/90 px-5 text-center text-base font-medium capitalize text-white"
+          className="center text-size-16 min-h-[50px] bg-slate-900/90 px-5 text-center font-medium capitalize text-white"
           color={["#764AF1", "#FE8FB5", "#FFAA40"]}
         >
           <div className="flex justify-center gap-3">
