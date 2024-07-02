@@ -3,6 +3,8 @@
 import Link from "next/link";
 import Image from "next/image";
 
+import { navigation } from "@/constants";
+
 import ShineBorder from "@/components/animation/ShineBorder";
 
 import { Button } from "../../ui/button";
@@ -51,18 +53,17 @@ export default function MobileNav() {
           </SheetDescription>
         </SheetHeader>
 
+        {/* Navigation Links */}
         <ul className="mb-12 mt-8 flex flex-col gap-9 text-lg text-white">
-          <li className="z-50">
-            <Link href="#">Home</Link>
-          </li>
-
-          <li className="z-50">
-            <Link href="#">Contact</Link>
-          </li>
-
-          <li className="z-50">
-            <Link href="#">Help</Link>
-          </li>
+          {navigation.map(
+            ({ label, route }: { label: string; route: string }) => (
+              <li key={label}>
+                <Link href={route} className="block">
+                  {label}
+                </Link>
+              </li>
+            ),
+          )}
         </ul>
 
         <ShineBorder

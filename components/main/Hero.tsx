@@ -1,6 +1,8 @@
 import Link from "next/link";
 import dynamic from "next/dynamic";
 
+import { heroData } from "@/constants";
+
 import ShineBorder from "../animation/ShineBorder";
 import NumberTicker from "../animation/NumberTicker";
 
@@ -52,35 +54,18 @@ export default function Hero() {
           </div>
 
           <ul className="mx-auto mb-1 flex max-w-[730px] justify-evenly text-center md:justify-start md:gap-10">
-            <li className="flex flex-col">
-              <span className="text-xl font-semibold">
-                {" "}
-                <NumberTicker value={100} className="text-white" />
-                K+
-              </span>
-              <span className="text-xs text-light-black">
-                Registered Clients
-              </span>
-            </li>
-
-            <li className="flex flex-col">
-              <span className="text-xl font-semibold">
-                {" "}
-                <NumberTicker value={20} className="text-white" />
-                K+
-              </span>
-              <span className="text-xs text-light-black">Regular Bid</span>
-            </li>
-
-            <li className="flex flex-col">
-              <span className="text-xl font-semibold">
-                <NumberTicker value={50} className="text-white" />
-                K+
-              </span>
-              <span className="text-xs text-light-black">
-                Verified Auctions
-              </span>
-            </li>
+            {heroData.map(
+              ({ label, value }: { label: string; value: number }) => (
+                <li key={label} className="flex flex-col">
+                  <span className="text-xl font-semibold">
+                    {" "}
+                    <NumberTicker value={value} className="text-white" />
+                    K+
+                  </span>
+                  <span className="text-xs text-light-black">{label}</span>
+                </li>
+              ),
+            )}
           </ul>
         </div>
 

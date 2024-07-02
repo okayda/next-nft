@@ -2,6 +2,75 @@
 @tailwind components;
 @tailwind utilities;
 
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #131022;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
 body {
-  @apply bg-[#131022];
+  text-rendering: optimizeLegibility;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@layer utilities {
+  .navigation {
+    @apply fixed top-0 z-50 h-[65px] w-full bg-purple-dark shadow-sm shadow-light-black/30 backdrop-blur-md;
+  }
+
+  .hero-section {
+    @apply mx-auto max-w-full px-3 text-white full:px-0;
+  }
+
+  .text-size-12 {
+    @apply text-[12px] leading-normal;
+  }
+
+  .text-size-14 {
+    @apply text-[14px] leading-normal;
+  }
+
+  .text-size-16 {
+    @apply text-[16px] leading-normal;
+  }
+
+  .text-size-18 {
+    @apply text-[18px] leading-normal;
+  }
+
+  .text-size-20 {
+    @apply text-[20px] leading-normal;
+  }
+
+  .text-size-24 {
+    @apply text-[24px] leading-normal;
+  }
+
+  .text-size-32 {
+    @apply text-[32px] leading-normal;
+  }
 }
