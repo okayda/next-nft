@@ -21,7 +21,7 @@ export default function Navigation() {
             />
 
             <span className="text-size-30 font-semibold tracking-widest text-white">
-              NFTs
+              Rocket
             </span>
           </Link>
         </div>

@@ -43,7 +43,7 @@ export default function MobileNav() {
             />
 
             <span className="text-size-30 font-semibold tracking-widest text-white">
-              NFTs
+              Rocket
             </span>
           </SheetTitle>
 

@@ -27,3 +27,55 @@ export const heroData = [
     value: 50,
   },
 ];
+
+export const ctaImgs = [
+  // {
+  //   src: "../../public/nftsNFT_0.webp",
+  //   alt: "NFT Monkey",
+  // },
+  // {
+  //   src: "../../public/nftsNFT_1.webp",
+  //   alt: "NFT Monkey",
+  // },
+  // {
+  //   src: "../../public/nftsNFT_2.webp",
+  //   alt: "NFT Monkey",
+  // },
+  // {
+  //   src: "../../public/nftsNFT_3.webp",
+  //   alt: "NFT Monkey",
+  // },
+  // {
+  //   src: "../../public/nftsNFT_4.webp",
+  //   alt: "NFT Monkey",
+  // },
+  // {
+  //   src: "../../public/nftsNFT_5.webp",
+  //   alt: "NFT Monkey",
+  // },
+
+  {
+    src: "/nfts/NFT_0.webp",
+    alt: "NFT Monkey",
+  },
+  {
+    src: "/nfts/NFT_1.webp",
+    alt: "NFT Monkey",
+  },
+  {
+    src: "/nfts/NFT_2.webp",
+    alt: "NFT Monkey",
+  },
+  {
+    src: "/nfts/NFT_3.webp",
+    alt: "NFT Monkey",
+  },
+  {
+    src: "/nfts/NFT_4.webp",
+    alt: "NFT Monkey",
+  },
+  {
+    src: "/nfts/NFT_5.webp",
+    alt: "NFT Monkey",
+  },
+];
