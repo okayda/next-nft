@@ -29,31 +29,6 @@ export const heroData = [
 ];
 
 export const ctaImgs = [
-  // {
-  //   src: "../../public/nftsNFT_0.webp",
-  //   alt: "NFT Monkey",
-  // },
-  // {
-  //   src: "../../public/nftsNFT_1.webp",
-  //   alt: "NFT Monkey",
-  // },
-  // {
-  //   src: "../../public/nftsNFT_2.webp",
-  //   alt: "NFT Monkey",
-  // },
-  // {
-  //   src: "../../public/nftsNFT_3.webp",
-  //   alt: "NFT Monkey",
-  // },
-  // {
-  //   src: "../../public/nftsNFT_4.webp",
-  //   alt: "NFT Monkey",
-  // },
-  // {
-  //   src: "../../public/nftsNFT_5.webp",
-  //   alt: "NFT Monkey",
-  // },
-
   {
     src: "/nfts/NFT_0.webp",
     alt: "NFT Monkey",
@@ -77,5 +52,55 @@ export const ctaImgs = [
   {
     src: "/nfts/NFT_5.webp",
     alt: "NFT Monkey",
+  },
+];
+
+export const categoryImgs = [
+  {
+    src: "/category/category_0.webp",
+    title: "Art Collection",
+    label: "Best collection for you",
+  },
+
+  {
+    src: "/category/category_1.webp",
+    title: "Art Collection",
+    label: "Best collection for you",
+  },
+
+  {
+    src: "/category/category_2.webp",
+    title: "Art Collection",
+    label: "Best collection for you",
+  },
+
+  {
+    src: "/category/category_3.webp",
+    title: "Art Collection",
+    label: "Best collection for you",
+  },
+
+  {
+    src: "/category/category_4.webp",
+    title: "Art Collection",
+    label: "Best collection for you",
+  },
+
+  {
+    src: "/category/category_5.webp",
+    title: "Art Collection",
+    label: "Best collection for you",
+  },
+
+  {
+    src: "/category/category_6.webp",
+    title: "Art Collection",
+    label: "Best collection for you",
+  },
+
+  {
+    src: "/category/category_7.webp",
+    title: "Art Collection",
+    label: "Best collection for you",
   },
 ];

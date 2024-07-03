@@ -1,5 +1,6 @@
 import CTA from "@/components/main/CTA";
 import Hero from "@/components/main/Hero";
+import Category from "@/components/main/Category";
 
 export default function Home() {
   return (
@@ -7,6 +8,8 @@ export default function Home() {
       <Hero />
 
       <CTA />
+
+      <Category />
     </div>
   );
 }
