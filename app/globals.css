@@ -46,6 +46,10 @@ body {
     @apply mx-auto max-w-full px-3 text-white xl:px-12;
   }
 
+  .cta-section {
+    @apply px-3 pt-20 md:pt-36 lg:mx-auto lg:max-w-full lg:px-12;
+  }
+
   .text-size-12 {
     @apply text-[12px];
   }
