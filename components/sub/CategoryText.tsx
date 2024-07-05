@@ -8,7 +8,7 @@ import { MagicCard, MagicContainer } from "../animation/MagicCard";
 export default function CategoryText() {
   return (
     <>
-      <h2 className="text-size-26 text-size-30 mb-12 text-center">
+      <h2 className="text-size-26 md:text-size-30 lg:text-size-36 mb-12 text-center lg:mb-16">
         Browse by Category
       </h2>
 

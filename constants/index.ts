@@ -104,3 +104,42 @@ export const categoryImgs = [
     label: "Best collection for you",
   },
 ];
+
+// Only 4 elements allowed if above the Grid Layout need to be modify.
+export const collectionData = [
+  {
+    title: "Futuristic Blade and Starship",
+    face: "/face/Face_0.webp",
+    user: "Grace Hawkins",
+    image: ["/collection/collection_0.webp", "/collection/collection_1.webp"],
+    description:
+      "High-tech knife with intricate engravings and a digital display embedded in its handle, and a sleek, advanced spacecraft with a streamlined design and glowing blue accents, suggesting it is designed for interstellar travel.",
+  },
+
+  {
+    title: "Fusion of Light and Technology",
+    face: "/face/Face_1.webp",
+    user: "James Travis",
+    image: ["/collection/collection_2.webp"],
+    description:
+      "Intricately designed orb resembling a miniature sun, surrounded by sleek, white futuristic components, highlighting advanced technology and captivating design.",
+  },
+
+  {
+    title: "Digital Reality",
+    face: "/face/Face_2.webp",
+    user: "Alice Wang",
+    image: ["/collection/collection_3.webp"],
+    description:
+      "Blue holographic globe projected from a sleek, futuristic device, highlighting advanced digital technology and intricate geometric patterns.",
+  },
+
+  {
+    title: "War Destroyer and Celestial Voyager",
+    face: "/face/Face_3.webp",
+    user: "Jake Johnson",
+    image: ["/collection/collection_4.webp", "/collection/collection_5.webp"],
+    description:
+      "Industrial mech robot in a high-tech facility alongside a sleek, futuristic spacecraft with an elegant, aerodynamic design, set against a dark, atmospheric backdrop.",
+  },
+];

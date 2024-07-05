@@ -50,6 +50,14 @@ body {
     @apply px-3 pt-20 md:pt-36 lg:mx-auto lg:max-w-full lg:px-12;
   }
 
+  .category-section {
+    @apply mx-auto max-w-full px-3 pt-32 text-white md:pt-44 lg:px-12 xl:pt-56;
+  }
+
+  .collection-section {
+    @apply mx-auto max-w-full px-3 pt-48 text-white md:pt-72 lg:px-12;
+  }
+
   .text-size-12 {
     @apply text-[12px];
   }
@@ -68,6 +76,10 @@ body {
 
   .text-size-20 {
     @apply text-[20px];
+  }
+
+  .text-size-22 {
+    @apply text-[22px];
   }
 
   .text-size-24 {

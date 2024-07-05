@@ -11,7 +11,7 @@ export default function CTAText() {
       <div className="flex flex-col items-center gap-5 md:flex-row md:justify-between">
         <h2 className="text-size-24 z-10 text-center">
           Sell & Buy your latest NFT with
-          <span className="text-purple-light"> ockChain</span>
+          <span className="text-purple-light"> Rocket</span>
         </h2>
 
         <Link
