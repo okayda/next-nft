@@ -18,7 +18,7 @@ export default function HeroText() {
           Marketplace
         </h1>
 
-        <p className="text-size-14 md:text-size-16 mx-auto mb-6 max-w-[340px] text-light-black md:mx-0 xl:max-w-[470px]">
+        <p className="text-size-14 md:text-size-16 mx-auto max-w-[340px] pb-6 text-light-black md:mx-0 xl:max-w-[470px]">
           NFTs, are artworks created on the blockchain with unique encryption
           codes that can be validated for ownership.
         </p>

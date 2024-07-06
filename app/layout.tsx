@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 
 import "./globals.css";
+
 import Navigation from "@/components/main/navigation/Navigation";
+import Footer from "@/components/main/Footer";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -29,7 +31,9 @@ export default function RootLayout({
 
         <main>{children}</main>
 
-        <footer className="pb-[1000px]">Footer</footer>
+        <footer className="pt-44">
+          <Footer />
+        </footer>
       </body>
     </html>
   );
