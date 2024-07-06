@@ -45,7 +45,6 @@ export default function CollectionText() {
                   {image.map((src: string) => (
                     <div key={src}>
                       <Image
-                        priority
                         src={src}
                         width={400}
                         height={400}

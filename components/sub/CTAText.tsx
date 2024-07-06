@@ -26,12 +26,11 @@ export default function CTAText() {
         {ctaImgs.map(({ src, alt }: { src: string; alt: string }) => (
           <Image
             src={src}
-            width={400}
-            height={400}
+            width={100}
+            height={100}
             alt={alt}
             key={src}
             className="z-10 h-full w-full rounded-md object-cover"
-            priority
           />
         ))}
       </div>

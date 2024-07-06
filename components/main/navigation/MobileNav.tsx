@@ -7,7 +7,6 @@ import { navigation } from "@/constants";
 
 import ShineBorder from "@/components/animation/ShineBorder";
 
-import { Button } from "../../ui/button";
 import {
   Sheet,
   SheetContent,
@@ -28,11 +27,11 @@ export default function MobileNav() {
     <Sheet key="left">
       <SheetTrigger
         asChild
-        className="relative rounded-md border border-light-black/30 md:hidden"
+        className="relative rounded-md border border-none md:hidden"
       >
-        <Button className="p-2">
+        <div className="p-2">
           <Image src="/icons/svg/burger.svg" width={26} height={26} alt="" />
-        </Button>
+        </div>
       </SheetTrigger>
 
       <SheetContent

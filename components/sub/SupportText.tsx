@@ -26,8 +26,8 @@ export default function SupportText() {
             <div>
               <Image
                 src={src}
-                width={800}
-                height={800}
+                width={300}
+                height={300}
                 alt=""
                 className="mb-5 h-[60px] w-[60px] lg:h-[70px] lg:w-[70px]"
               />
