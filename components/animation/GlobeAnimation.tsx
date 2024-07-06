@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 
 import { OrbitControls } from "@react-three/drei";
 import ThreeGlobe from "three-globe";
-import countries from "@/data/globeData/globe.json";
+import countries from "@/data/globe.json";
 
 declare module "@react-three/fiber" {
   interface ThreeElements {
