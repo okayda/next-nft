@@ -1,3 +1,5 @@
+"use client";
+
 import CTA from "@/components/main/CTA";
 import Hero from "@/components/main/Hero";
 import Category from "@/components/main/Category";

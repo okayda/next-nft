@@ -1,10 +1,13 @@
 "use client";
+
+import { Canvas, Object3DNode, extend, useThree } from "@react-three/fiber";
+import { Color, Fog, PerspectiveCamera, Scene, Vector3 } from "three";
 import { useEffect, useRef, useState } from "react";
-import { Color, Scene, Fog, PerspectiveCamera, Vector3 } from "three";
-import ThreeGlobe from "three-globe";
-import { useThree, Object3DNode, Canvas, extend } from "@react-three/fiber";
+
 import { OrbitControls } from "@react-three/drei";
+import ThreeGlobe from "three-globe";
 import countries from "@/data/globeData/globe.json";
+
 declare module "@react-three/fiber" {
   interface ThreeElements {
     threeGlobe: Object3DNode<ThreeGlobe, typeof ThreeGlobe>;
@@ -14,8 +17,8 @@ declare module "@react-three/fiber" {
 extend({ ThreeGlobe });
 
 const RING_PROPAGATION_SPEED = 3;
-const aspect = 1.2;
-const cameraZ = 300;
+
+type ObjAccessor<T> = (obj: object) => T;
 
 type Position = {
   order: number;
@@ -26,6 +29,8 @@ type Position = {
   arcAlt: number;
   color: string;
 };
+
+type GenericObject = Record<string, unknown>;
 
 export type GlobeConfig = {
   pointSize?: number;
@@ -60,7 +65,7 @@ interface WorldProps {
 
 let numbersOfRings = [0];
 
-export function Globe({ globeConfig, data }: WorldProps) {
+const Globe = ({ globeConfig, data }: WorldProps) => {
   const [globeData, setGlobeData] = useState<
     | {
         size: number;
@@ -115,7 +120,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
 
   const _buildData = () => {
     const arcs = data;
-    let points = [];
+    const points = [];
     for (let i = 0; i < arcs.length; i++) {
       const arc = arcs[i];
       const rgb = hexToRgb(arc.color) as { r: number; g: number; b: number };
@@ -123,15 +128,15 @@ export function Globe({ globeConfig, data }: WorldProps) {
         size: defaultProps.pointSize,
         order: arc.order,
         color: (t: number) => `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${1 - t})`,
-        lat: arc.startLat,
-        lng: arc.startLng,
+        lat: validateNumber(arc.startLat),
+        lng: validateNumber(arc.startLng),
       });
       points.push({
         size: defaultProps.pointSize,
         order: arc.order,
         color: (t: number) => `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${1 - t})`,
-        lat: arc.endLat,
-        lng: arc.endLng,
+        lat: validateNumber(arc.endLat),
+        lng: validateNumber(arc.endLng),
       });
     }
 
@@ -148,6 +153,14 @@ export function Globe({ globeConfig, data }: WorldProps) {
     setGlobeData(filteredPoints);
   };
 
+  const validateNumber = (value: number): number => {
+    if (isNaN(value)) {
+      console.error(`Invalid number detected: ${value}. Replacing with 0.`);
+      return 0;
+    }
+    return value;
+  };
+
   useEffect(() => {
     if (globeRef.current && globeData) {
       globeRef.current
@@ -157,7 +170,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
         .showAtmosphere(defaultProps.showAtmosphere)
         .atmosphereColor(defaultProps.atmosphereColor)
         .atmosphereAltitude(defaultProps.atmosphereAltitude)
-        .hexPolygonColor((e) => {
+        .hexPolygonColor(() => {
           return defaultProps.polygonColor;
         });
       startAnimation();
@@ -169,32 +182,32 @@ export function Globe({ globeConfig, data }: WorldProps) {
 
     globeRef.current
       .arcsData(data)
-      .arcStartLat((d) => (d as { startLat: number }).startLat * 1)
-      .arcStartLng((d) => (d as { startLng: number }).startLng * 1)
-      .arcEndLat((d) => (d as { endLat: number }).endLat * 1)
-      .arcEndLng((d) => (d as { endLng: number }).endLng * 1)
-      .arcColor((e: any) => (e as { color: string }).color)
-      .arcAltitude((e) => {
-        return (e as { arcAlt: number }).arcAlt * 1;
-      })
-      .arcStroke((e) => {
+      .arcStartLat(createNumberAccessor("startLat"))
+      .arcStartLng(createNumberAccessor("startLng"))
+      .arcEndLat(createNumberAccessor("endLat"))
+      .arcEndLng(createNumberAccessor("endLng"))
+      .arcColor(createStringAccessor("color"))
+      .arcAltitude(createNumberAccessor("arcAlt"))
+      .arcStroke(() => {
         return [0.32, 0.28, 0.3][Math.round(Math.random() * 2)];
       })
       .arcDashLength(defaultProps.arcLength)
-      .arcDashInitialGap((e) => (e as { order: number }).order * 1)
+      .arcDashInitialGap(createNumberAccessor("order"))
       .arcDashGap(15)
-      .arcDashAnimateTime((e) => defaultProps.arcTime);
+      .arcDashAnimateTime(() => defaultProps.arcTime);
 
     globeRef.current
       .pointsData(data)
-      .pointColor((e) => (e as { color: string }).color)
+      .pointColor(createStringAccessor("color"))
       .pointsMerge(true)
       .pointAltitude(0.0)
       .pointRadius(2);
 
     globeRef.current
       .ringsData([])
-      .ringColor((e: any) => (t: any) => e.color(t))
+      .ringColor((t: number) => {
+        return computeColorBasedOnTime(t);
+      })
       .ringMaxRadius(defaultProps.maxRings)
       .ringPropagationSpeed(RING_PROPAGATION_SPEED)
       .ringRepeatPeriod(
@@ -214,7 +227,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
       );
 
       globeRef.current.ringsData(
-        globeData.filter((d, i) => numbersOfRings.includes(i)),
+        globeData.filter((_, i) => numbersOfRings.includes(i)),
       );
     }, 2000);
 
@@ -228,7 +241,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
       <threeGlobe ref={globeRef} />
     </>
   );
-}
+};
 
 export function WebGLRendererConfig() {
   const { gl, size } = useThree();
@@ -237,54 +250,67 @@ export function WebGLRendererConfig() {
     gl.setPixelRatio(window.devicePixelRatio);
     gl.setSize(size.width, size.height);
     gl.setClearColor(0xffaaff, 0);
-  }, []);
+  }, [gl, size]);
 
   return null;
 }
 
-export function World(props: WorldProps) {
-  const { globeConfig } = props;
+const World = ({ globeConfig, data }: WorldProps) => {
   const scene = new Scene();
   scene.fog = new Fog(0xffffff, 400, 2000);
+
   return (
-    <Canvas scene={scene} camera={new PerspectiveCamera(50, aspect, 180, 1800)}>
-      <WebGLRendererConfig />
-      <ambientLight color={globeConfig.ambientLight} intensity={0.6} />
-      <directionalLight
-        color={globeConfig.directionalLeftLight}
-        position={new Vector3(-400, 100, 400)}
+    <Canvas scene={scene} camera={new PerspectiveCamera(50, 1.2, 180, 1800)}>
+      <ambientLight
+        color={new Color(globeConfig.ambientLight || "#ffffff")}
+        // eslint-disable-next-line react/no-unknown-property
+        intensity={0.6}
       />
       <directionalLight
-        color={globeConfig.directionalTopLight}
+        color={new Color(globeConfig.directionalLeftLight || "#ffffff")}
+        // eslint-disable-next-line react/no-unknown-property
+        position={new Vector3(-400, 100, 400)}
+        // eslint-disable-next-line react/no-unknown-property
+        intensity={0.7}
+      />
+      <directionalLight
+        color={new Color(globeConfig.directionalTopLight || "#ffffff")}
+        // eslint-disable-next-line react/no-unknown-property
         position={new Vector3(-200, 500, 200)}
+        // eslint-disable-next-line react/no-unknown-property
+        intensity={0.7}
       />
       <pointLight
-        color={globeConfig.pointLight}
+        color={new Color(globeConfig.pointLight || "#ffffff")}
+        // eslint-disable-next-line react/no-unknown-property
         position={new Vector3(-200, 500, 200)}
+        // eslint-disable-next-line react/no-unknown-property
         intensity={0.8}
       />
-      <Globe {...props} />
+      <Globe globeConfig={globeConfig} data={data} />
       <OrbitControls
         enablePan={false}
         enableZoom={false}
-        minDistance={cameraZ}
-        maxDistance={cameraZ}
-        autoRotateSpeed={0.8}
-        autoRotate={true}
+        minDistance={300}
+        maxDistance={300}
+        autoRotate={globeConfig.autoRotate}
+        autoRotateSpeed={globeConfig.autoRotateSpeed}
         minPolarAngle={Math.PI / 3.5}
         maxPolarAngle={Math.PI - Math.PI / 3}
       />
     </Canvas>
   );
-}
+};
+
+export default World;
 
 export function hexToRgb(hex: string) {
-  var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
-  hex = hex.replace(shorthandRegex, function (m, r, g, b) {
+  const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+  hex = hex.replace(shorthandRegex, (m, r, g, b) => {
     return r + r + g + g + b + b;
   });
 
-  var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
   return result
     ? {
         r: parseInt(result[1], 16),
@@ -295,7 +321,7 @@ export function hexToRgb(hex: string) {
 }
 
 export function genRandomNumbers(min: number, max: number, count: number) {
-  const arr = [];
+  const arr: number[] = [];
   while (arr.length < count) {
     const r = Math.floor(Math.random() * (max - min)) + min;
     if (arr.indexOf(r) === -1) arr.push(r);
@@ -303,3 +329,38 @@ export function genRandomNumbers(min: number, max: number, count: number) {
 
   return arr;
 }
+
+function createNumberAccessor(key: keyof Position): ObjAccessor<number> {
+  return (obj: object): number => {
+    const genericObj = obj as GenericObject; // Cast to GenericObject
+    if (key in genericObj && typeof genericObj[key] === "number") {
+      return validateNumber(genericObj[key] as number);
+    }
+    throw new Error(
+      `Object does not have a valid '${key}' property or it is not a number`,
+    );
+  };
+}
+
+function createStringAccessor(key: keyof Position): ObjAccessor<string> {
+  return (obj: object): string => {
+    const genericObj = obj as GenericObject;
+    if (key in genericObj && typeof genericObj[key] === "string") {
+      return genericObj[key] as string;
+    }
+    throw new Error(`Object does not have a valid '${key}' property`);
+  };
+}
+
+function computeColorBasedOnTime(time: number): string {
+  const colors = ["red", "green", "blue", "yellow"];
+  return colors[Math.floor(time) % colors.length];
+}
+
+const validateNumber = (value: number): number => {
+  if (isNaN(value)) {
+    console.error(`Invalid number detected: ${value}. Replacing with 0.`);
+    return 0;
+  }
+  return value;
+};
