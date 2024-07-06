@@ -50,6 +50,7 @@ export default function CollectionText() {
                         height={400}
                         alt={title}
                         className="rounded-md object-contain"
+                        priority
                       />
                     </div>
                   ))}

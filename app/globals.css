@@ -14,29 +14,6 @@ html {
   background-color: #131022;
 }
 
-html:focus-within {
-  scroll-behavior: smooth;
-}
-
-body {
-  text-rendering: optimizeLegibility;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html:focus-within {
-    scroll-behavior: auto;
-  }
-
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-
 @layer utilities {
   .navigation {
     @apply fixed top-0 z-[30] h-[65px] w-full bg-purple-dark shadow-sm shadow-light-black/30;

@@ -27,7 +27,7 @@ export default function MobileNav() {
     <Sheet key="left">
       <SheetTrigger
         asChild
-        className="relative rounded-md border border-none md:hidden"
+        className="relative rounded-md border-none md:hidden"
       >
         <div className="p-2">
           <Image src="/icons/svg/burger.svg" width={26} height={26} alt="" />
