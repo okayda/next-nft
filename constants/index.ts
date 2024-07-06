@@ -5,11 +5,11 @@ export const navigation = [
   },
   {
     label: "Contact",
-    route: "/contact",
+    route: "/",
   },
   {
     label: "Help",
-    route: "/help",
+    route: "/",
   },
 ];
 

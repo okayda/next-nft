@@ -3,7 +3,6 @@ import Image from "next/image";
 
 import { navigation } from "@/constants";
 
-import BorderBeam from "@/components/animation/BorderBeam";
 import ShineBorder from "@/components/animation/ShineBorder";
 
 export default function DesktopNav() {
@@ -11,7 +10,7 @@ export default function DesktopNav() {
     <div className="hidden items-center gap-5 md:flex">
       <nav className="h-full w-80 items-center">
         {/* Navigation Links */}
-        <ul className="text-size-14 relative z-[45] flex h-auto w-full items-center justify-between rounded-md bg-slate-900/90 px-5 py-2 text-white">
+        <ul className="text-size-14 relative flex h-auto w-full items-center justify-between rounded-md px-5 py-2 font-sans font-medium text-white">
           {navigation.map(
             ({ label, route }: { label: string; route: string }) => (
               <li key={label}>
@@ -21,8 +20,6 @@ export default function DesktopNav() {
               </li>
             ),
           )}
-
-          <BorderBeam size={300} duration={8} delay={9} />
         </ul>
       </nav>
 

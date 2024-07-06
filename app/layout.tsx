@@ -12,9 +12,9 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "NFTs & Crypto",
+  title: "NFTs",
   description:
-    "Cryptocurrency or NFTs, are artworks created on the blockchain with unique encryption codes that can be validated for ownership.",
+    "NFTs, are artworks created on the blockchain with unique encryption codes that can be validated for ownership.",
 };
 
 export default function RootLayout({

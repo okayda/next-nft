@@ -39,7 +39,7 @@ body {
 
 @layer utilities {
   .navigation {
-    @apply fixed top-0 z-40 h-[65px] w-full bg-purple-dark shadow-sm shadow-light-black/30;
+    @apply fixed top-0 z-[30] h-[65px] w-full bg-purple-dark shadow-sm shadow-light-black/30;
   }
 
   .hero-section {
