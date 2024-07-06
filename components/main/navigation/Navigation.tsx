@@ -4,6 +4,12 @@ import Image from "next/image";
 import DesktopNav from "./DesktopNav";
 import MobileNav from "./MobileNav";
 
+import { Monoton } from "next/font/google";
+const monoton = Monoton({
+  subsets: ["latin"],
+  weight: ["400"],
+});
+
 export default function Navigation() {
   return (
     <div className="navigation">
@@ -20,7 +26,9 @@ export default function Navigation() {
               alt="Rocket"
             />
 
-            <span className="text-size-30 font-semibold tracking-widest text-white">
+            <span
+              className={`${monoton.className} text-size-28 font-semibold tracking-widest text-white`}
+            >
               Rocket
             </span>
           </Link>

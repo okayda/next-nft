@@ -3,12 +3,12 @@ import HeroGlobe from "../sub/HeroContent/HeroGlobe";
 
 export default function Hero() {
   return (
-    <div className="hero-section">
+    <section className="hero-section">
       <div className="md:flex md:items-center md:justify-evenly xl:justify-between">
         <HeroText />
 
         <HeroGlobe />
       </div>
-    </div>
+    </section>
   );
 }

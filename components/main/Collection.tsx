@@ -2,8 +2,8 @@ import CollectionText from "../sub/CollectionText";
 
 export default function Collection() {
   return (
-    <div className="collection-section">
+    <section className="collection-section">
       <CollectionText />
-    </div>
+    </section>
   );
 }

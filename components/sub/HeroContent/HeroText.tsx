@@ -1,5 +1,4 @@
 import Link from "next/link";
-
 import { heroData } from "@/constants";
 
 import NumberTicker from "@/components/animation/NumberTicker";
@@ -10,7 +9,7 @@ export default function HeroText() {
     <div>
       <div className="text-center md:text-left">
         <span className="text-size-12 md:text-size-14 text-purple-light md:mb-1 md:block xl:mb-2">
-          NFTs & Cryptocurrency
+          NFTs: Non Fungible Tokens
         </span>
 
         <h1 className="text-size-30 md:text-size-40 lg:text-size-50 xl:text-size-60 mx-auto mb-4 max-w-[340px] font-semibold leading-10 md:mx-0 md:leading-tight lg:leading-[55px] xl:max-w-[420px] xl:leading-[60px]">
@@ -20,8 +19,8 @@ export default function HeroText() {
         </h1>
 
         <p className="text-size-14 md:text-size-16 mx-auto mb-6 max-w-[340px] text-light-black md:mx-0 xl:max-w-[470px]">
-          NFTs & Cryptocurrency, are artworks created on the blockchain with
-          unique encryption codes that can be validated for ownership.
+          NFTs, are artworks created on the blockchain with unique encryption
+          codes that can be validated for ownership.
         </p>
 
         <div className="text-size-16 md:text-size-18 mb-8 flex justify-center gap-4 md:justify-start">

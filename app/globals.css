@@ -39,7 +39,7 @@ body {
 
 @layer utilities {
   .navigation {
-    @apply fixed top-0 z-50 h-[65px] w-full bg-purple-dark shadow-sm shadow-light-black/30 backdrop-blur-md;
+    @apply fixed top-0 z-40 h-[65px] w-full bg-purple-dark shadow-sm shadow-light-black/30 backdrop-blur-md;
   }
 
   .hero-section {
@@ -51,11 +51,15 @@ body {
   }
 
   .category-section {
-    @apply mx-auto max-w-full px-3 pt-32 text-white md:pt-44 lg:px-12 xl:pt-56;
+    @apply mx-auto max-w-full px-3 pt-32 text-white md:pt-44 lg:px-12 xl:pt-64;
   }
 
   .collection-section {
     @apply mx-auto max-w-full px-3 pt-48 text-white md:pt-72 lg:px-12;
+  }
+
+  .support-section {
+    @apply mx-auto max-w-full px-3 pt-56 md:pt-72 lg:px-12;
   }
 
   .text-size-12 {
@@ -88,6 +92,10 @@ body {
 
   .text-size-26 {
     @apply text-[26px];
+  }
+
+  .text-size-28 {
+    @apply text-[28px];
   }
 
   .text-size-30 {

@@ -9,7 +9,7 @@ export default function CTAText() {
   return (
     <div className="p-4 text-white md:py-10 lg:px-6">
       <div className="flex flex-col items-center gap-5 md:flex-row md:justify-between">
-        <h2 className="text-size-24 z-10 text-center">
+        <h2 className="text-size-26 z-10 text-center">
           Sell & Buy your latest NFT with
           <span className="text-purple-light"> Rocket</span>
         </h2>

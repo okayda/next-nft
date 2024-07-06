@@ -2,6 +2,7 @@ import CTA from "@/components/main/CTA";
 import Hero from "@/components/main/Hero";
 import Category from "@/components/main/Category";
 import Collection from "@/components/main/Collection";
+import Support from "@/components/main/Support";
 
 export default function Home() {
   return (
@@ -13,6 +14,8 @@ export default function Home() {
       <Category />
 
       <Collection />
+
+      <Support />
     </div>
   );
 }

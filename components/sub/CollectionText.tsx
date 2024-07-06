@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Image from "next/image";
 
 import { cn } from "@/lib/utils";
@@ -21,18 +22,19 @@ const gridPositions = [
 export default function CollectionText() {
   return (
     <>
-      <h2 className="text-size-26 md:text-size-30 lg:text-size-36 mb-12 text-center lg:mb-16">
+      <h2 className="text-size-30 lg:text-size-36 mb-12 text-center md:mb-20">
         Top Collection
       </h2>
 
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:grid-rows-2">
+      <div className="mx-auto grid max-w-[420px] grid-cols-1 gap-4 md:mx-0 md:max-w-none md:grid-cols-3 md:grid-rows-2 md:gap-5">
         {collectionData.map(
           (
             { title, face, user, image, description }: Collection,
             index: number,
           ) => {
             return (
-              <div
+              <Link
+                href="/"
                 key={user}
                 className={cn(
                   "group/bento shadow-input row-span-1 flex h-auto w-auto flex-col gap-5 rounded-md border border-gray-700 bg-slate-900 p-3 transition duration-200 hover:border-purple-light hover:shadow-xl",
@@ -45,8 +47,8 @@ export default function CollectionText() {
                       <Image
                         priority
                         src={src}
-                        width={800}
-                        height={800}
+                        width={400}
+                        height={400}
                         alt={title}
                         className="rounded-md object-contain"
                       />
@@ -83,7 +85,7 @@ export default function CollectionText() {
                     {description}
                   </p>
                 </div>
-              </div>
+              </Link>
             );
           },
         )}

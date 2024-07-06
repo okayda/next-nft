@@ -17,6 +17,12 @@ import {
   SheetTrigger,
 } from "../../ui/sheet";
 
+import { Monoton } from "next/font/google";
+const monoton = Monoton({
+  subsets: ["latin"],
+  weight: ["400"],
+});
+
 export default function MobileNav() {
   return (
     <Sheet key="left">
@@ -42,14 +48,16 @@ export default function MobileNav() {
               alt="Rocket"
             />
 
-            <span className="text-size-30 font-semibold tracking-widest text-white">
+            <span
+              className={`${monoton.className} text-size-30 font-semibold tracking-widest text-white`}
+            >
               Rocket
             </span>
           </SheetTitle>
 
-          <SheetDescription className="text-size-16 text-left font-normal text-light-black">
-            NFTs & Cryptocurrency, are artworks created on the blockchain with
-            unique encryption codes that can be validated for ownership.
+          <SheetDescription className="text-size-16 border-b border-dashed pb-5 text-left font-normal text-light-black">
+            NFTs, are artworks created on the blockchain with unique encryption
+            codes that can be validated for ownership.
           </SheetDescription>
         </SheetHeader>
 
